@@ -182,4 +182,25 @@ function updateScrollProgress(){
 }
 window.addEventListener('scroll',updateScrollProgress,{passive:true});
 window.addEventListener('resize',updateScrollProgress);
+updateScrollProgress();// UX: back to top button
+const backToTop=document.getElementById('backToTop');
+function updateBackToTop(){
+  backToTop?.classList.toggle('show',window.scrollY>650);
+}
+window.addEventListener('scroll',updateBackToTop,{passive:true});
+updateBackToTop();
+backToTop?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+
+// Premium UX: scroll progress bar
+const scrollProgressBar=document.getElementById('scrollProgressBar');
+function updateScrollProgress(){
+  if(!scrollProgressBar)return;
+  const doc=document.documentElement;
+  const max=doc.scrollHeight-window.innerHeight;
+  const progress=max>0?(window.scrollY/max)*100:0;
+  scrollProgressBar.style.width=Math.max(0,Math.min(100,progress))+'%';
+}
+window.addEventListener('scroll',updateScrollProgress,{passive:true});
+window.addEventListener('resize',updateScrollProgress);
 updateScrollProgress();
