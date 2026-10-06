@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link crossorigin="" href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<title> Spike Media | معرض الأعمال</title>
+<meta content="معرض أعمال Spike Media  لتصاميم السوشيال وفيديوهات AI." name="description"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&amp;family=Montserrat:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="style.css" rel="stylesheet"/>
+<style id="index-only-final-fixes">
+/* index-only final fixes */
+.scroll-progress{position:fixed!important;top:auto!important;bottom:0!important;right:0!important;left:0!important;height:4px!important;z-index:2300!important;background:rgba(255,255,255,.08)!important;pointer-events:none!important}
+.scroll-progress span{display:block;width:0%;height:100%;background:var(--gradient);box-shadow:0 0 18px rgba(58,123,255,.45);transition:width .08s linear}
+body.filters-open .back-to-top{opacity:0!important;pointer-events:none!important;transform:translateY(16px) scale(.92)!important}
+.offcanvas-bottom{z-index:1250!important;bottom:92px!important;left:18px!important;right:18px!important;max-width:650px;margin-inline:auto;padding:10px 8px 14px;box-shadow:0 28px 80px rgba(11,22,72,.22)!important}
+.offcanvas-backdrop{z-index:1240!important}
+.mobile-tabs{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+.filter-btn{min-height:54px;display:flex;align-items:center;justify-content:center;text-align:center;white-space:nowrap}
+.preview-content.video-open .preview-nav{display:none!important}
+.preview-content.video-open .preview-counter{right:18px!important}
+.preview-counter{position:absolute;top:18px;right:72px;z-index:5;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;font-weight:900;backdrop-filter:blur(18px);direction:ltr}
+.preview-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:52px;height:52px;border:0;border-radius:50%;color:#fff;background:rgba(255,255,255,.14);backdrop-filter:blur(18px);box-shadow:0 14px 34px rgba(0,0,0,.20);transition:.25s ease}
+.preview-nav:hover{background:var(--gradient)}
+.preview-prev{right:18px}.preview-next{left:18px}
+.load-more-wrap{display:flex;justify-content:center;padding:22px 0 10px}
+.load-more-btn{border:0;border-radius:999px;padding:14px 34px;font-weight:950;color:#fff;background:var(--gradient);box-shadow:0 18px 42px rgba(41,121,255,.20);transition:.25s ease}
+.load-more-btn.is-hidden{display:none!important}
+.back-to-top{position:fixed;left:22px;bottom:96px;z-index:1200;width:48px;height:48px;border:0;border-radius:50%;color:#fff;background:var(--gradient);box-shadow:0 20px 48px rgba(36,118,255,.26);opacity:0;transform:translateY(16px) scale(.92);pointer-events:none;transition:.25s ease}
+.back-to-top.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+body.dark-mode .offcanvas-bottom{background:rgba(7,14,34,.92)!important;border-color:rgba(255,255,255,.12)!important}
+body.dark-mode .filter-btn{background:rgba(255,255,255,.08)!important;border-color:rgba(255,255,255,.12)!important;color:#fff!important}
+body.dark-mode .filter-btn.active,body.dark-mode .filter-btn:hover{background:var(--gradient)!important;border-color:transparent!important}
+body.dark-mode .top-header,body.dark-mode .top-header.scrolled{background:rgba(7,14,34,.78)!important;border:1px solid rgba(255,255,255,.12)!important;box-shadow:0 18px 50px rgba(0,0,0,.34)!important;backdrop-filter:blur(24px)!important}
+body.dark-mode .brand-copy strong,body.dark-mode .brand-copy span{color:#ffffff!important;text-shadow:0 2px 14px rgba(0,0,0,.45)!important}
+body.dark-mode .bottom-nav{background:rgba(7,14,34,.82)!important;border:1px solid rgba(255,255,255,.14)!important;box-shadow:0 22px 58px rgba(0,0,0,.38)!important}
+body.dark-mode .bottom-nav a{color:#aeb8d4!important}
+body.dark-mode .bottom-nav a.active,body.dark-mode .bottom-nav a:hover{background:var(--gradient)!important;color:#fff!important}
+@media(max-width:767px){.preview-nav{width:44px;height:44px}.preview-prev{right:10px}.preview-next{left:10px}.preview-counter{top:14px;right:56px;font-size:.86rem}.back-to-top{left:16px;bottom:92px;width:44px;height:44px}}
+
+/* Trust strip + swipe toast */
+.trust-strip{
+  margin-top:18px;
+  padding:13px 16px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px 18px;
+  background:rgba(255,255,255,.66);
+  border:1px solid rgba(255,255,255,.78);
+  box-shadow:0 18px 50px rgba(11,22,72,.08);
+  backdrop-filter:blur(18px);
+}
+.trust-strip span{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#344160;
+  font-weight:900;
+  font-size:.94rem;
+  white-space:nowrap;
+}
+.trust-strip i{
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.swipe-toast{
+  position:fixed;
+  left:50%;
+  bottom:172px;
+  transform:translateX(-50%) translateY(18px) scale(.96);
+  z-index:2400;
+  min-width:min(360px,calc(100% - 42px));
+  padding:13px 18px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  color:#fff;
+  font-weight:950;
+  background:rgba(5,10,25,.78);
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 22px 60px rgba(0,0,0,.24);
+  backdrop-filter:blur(20px);
+  opacity:0;
+  pointer-events:none;
+  transition:.28s ease;
+}
+.swipe-toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0) scale(1);
+}
+.swipe-toast i{
+  color:#62D9FF;
+}
+body.dark-mode .trust-strip{
+  background:rgba(255,255,255,.07);
+  border-color:rgba(255,255,255,.12);
+}
+body.dark-mode .trust-strip span{
+  color:#dfe7ff;
+}
+@media(max-width:575px){
+  .trust-strip{
+    border-radius:28px;
+    justify-content:flex-start;
+    padding:14px 16px;
+    gap:12px;
+  }
+  .trust-strip span{
+    width:calc(50% - 8px);
+    font-size:.86rem;
+  }
+  .swipe-toast{
+    bottom:164px;
+    font-size:.88rem;
+  }
+}
+
+</style>
+<style id="split-pages-links">
+/* Page split: keeps the existing visual identity and only marks current page. */
+.bottom-nav a[data-page="post"]{background:var(--gradient);color:#fff;transform:translateY(-3px)}
+#mobileFilters .ghost-btn{min-height:52px;padding:12px 14px;text-decoration:none}
+@media(max-width:575px){#mobileFilters .ghost-btn{font-size:.88rem}}
+</style>
+<style id="post-performance-css">
+/* Performance-only: reduce rendering work for large portfolio grids. */
+#gallery .work-card{contain:layout paint style;}
+#gallery .work-card img{content-visibility:auto;}
+@media(max-width:767px){
+  #gallery .work-card{content-visibility:auto;contain-intrinsic-size:280px 350px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{transition:none!important;}
+  .work-card,.magnetic{transition:none!important;}
+}
+</style>
+</link></link></link></head>
+<body data-current-page="post">
+<div aria-hidden="true" class="scroll-progress"><span id="scrollProgressBar"></span></div>
+<div class="cursor-dot"></div>
+<div class="page-glow glow-one"></div>
+<div class="page-glow glow-two"></div>
+<header class="site-header" id="topHeader">
+<div class="container-fluid page-container">
+<nav class="navbar-wrap">
+<a aria-label="Spike Media" class="brand-box" href="index.html">
+<img alt="EbdAA Media Logo" class="brand-logo" src="assets/logo.png"/>
+<div class="brand-text"><strong>Spike Media للتصميم والتسويق الرقمي</strong></div>
+</a>
+<div class="nav-actions">
+<button aria-label="تبديل الوضع" class="theme-toggle-btn magnetic" id="themeToggle" type="button"><i class="fa-solid fa-moon"></i></button>
+<button aria-label="فتح الفلاتر" class="mobile-menu-btn magnetic" data-bs-target="#mobileFilters" data-bs-toggle="offcanvas" type="button"><i class="fa-solid fa-sliders"></i></button>
+</div>
+</nav>
+</div>
+</header>
+<main>
+<section class="portfolio-toolbar reveal" id="portfolio">
+<div class="container-fluid page-container">
+<div class="section-head compact-head"><div><p class="section-label">Portfolio Gallery</p><h2>بوستات سوشال ميديا</h2></div><div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="searchInput" placeholder="ابحث باسم العمل..." type="search"/></div></div>
+</div>
+</section>
+<section class="gallery-section reveal">
+<div class="container-fluid page-container"><div class="masonry-gallery" id="gallery">
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 1">
+<img alt="بوستات سوشال ميديا 1" class="lazy-img" data-src="صورة بوست 1.png" decoding="async" fetchpriority="high" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 2">
+<img alt="بوستات سوشال ميديا 2" class="lazy-img" data-src="صورة بوست 2.png" decoding="async" fetchpriority="high" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 3">
+<img alt="بوستات سوشال ميديا 3" class="lazy-img" data-src="صورة بوست 3.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 4">
+<img alt="بوستات سوشال ميديا 4" class="lazy-img" data-src="صورة بوست 4.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 5">
+<img alt="بوستات سوشال ميديا 5" class="lazy-img" data-src="صورة بوست 5.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 6">
+<img alt="بوستات سوشال ميديا 6" class="lazy-img" data-src="صورة بوست 6.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 7">
+<img alt="بوستات سوشال ميديا 7" class="lazy-img" data-src="صورة بوست 7.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 8">
+<img alt="بوستات سوشال ميديا 8" class="lazy-img" data-src="صورة بوست 8.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 9">
+<img alt="بوستات سوشال ميديا 9" class="lazy-img" data-src="صورة بوست 9.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 10">
+<img alt="بوستات سوشال ميديا 10" class="lazy-img" data-src="صورة بوست 10.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 11">
+<img alt="بوستات سوشال ميديا 11" class="lazy-img" data-src="صورة بوست 11.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 12">
+<img alt="بوستات سوشال ميديا 12" class="lazy-img" data-src="صورة بوست 12.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 13">
+<img alt="بوستات سوشال ميديا 13" class="lazy-img" data-src="صورة بوست 13.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 14">
+<img alt="بوستات سوشال ميديا 14" class="lazy-img" data-src="صورة بوست 14.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 15">
+<img alt="بوستات سوشال ميديا 15" class="lazy-img" data-src="صورة بوست 15.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 16">
+<img alt="بوستات سوشال ميديا 16" class="lazy-img" data-src="صورة بوست 16.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 17">
+<img alt="بوستات سوشال ميديا 17" class="lazy-img" data-src="صورة بوست 17.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 18">
+<img alt="بوستات سوشال ميديا 18" class="lazy-img" data-src="صورة بوست 18.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 19">
+<img alt="بوستات سوشال ميديا 19" class="lazy-img" data-src="صورة بوست 19.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 20">
+<img alt="بوستات سوشال ميديا 20" class="lazy-img" data-src="صورة بوست 20.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 21">
+<img alt="بوستات سوشال ميديا 21" class="lazy-img" data-src="صورة بوست 21.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 22">
+<img alt="بوستات سوشال ميديا 22" class="lazy-img" data-src="صورة بوست 22.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 23">
+<img alt="بوستات سوشال ميديا 23" class="lazy-img" data-src="صورة بوست 23.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 24">
+<img alt="بوستات سوشال ميديا 24" class="lazy-img" data-src="صورة بوست 24.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 25">
+<img alt="بوستات سوشال ميديا 25" class="lazy-img" data-src="صورة بوست 25.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 26">
+<img alt="بوستات سوشال ميديا 26" class="lazy-img" data-src="صورة بوست 26.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 27">
+<img alt="بوستات سوشال ميديا 27" class="lazy-img" data-src="صورة بوست 27.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 28">
+<img alt="بوستات سوشال ميديا 28" class="lazy-img" data-src="صورة بوست 28.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 29">
+<img alt="بوستات سوشال ميديا 29" class="lazy-img" data-src="صورة بوست 29.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 30">
+<img alt="بوستات سوشال ميديا 30" class="lazy-img" data-src="صورة بوست 30.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 31">
+<img alt="بوستات سوشال ميديا 31" class="lazy-img" data-src="صورة بوست 31.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 32">
+<img alt="بوستات سوشال ميديا 32" class="lazy-img" data-src="صورة بوست 32.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 33">
+<img alt="بوستات سوشال ميديا 33" class="lazy-img" data-src="صورة بوست 33.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 34">
+<img alt="بوستات سوشال ميديا 34" class="lazy-img" data-src="صورة بوست 34.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 35">
+<img alt="بوستات سوشال ميديا 35" class="lazy-img" data-src="صورة بوست 35.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 36">
+<img alt="بوستات سوشال ميديا 36" class="lazy-img" data-src="صورة بوست 36.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 37">
+<img alt="بوستات سوشال ميديا 37" class="lazy-img" data-src="صورة بوست 37.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 38">
+<img alt="بوستات سوشال ميديا 38" class="lazy-img" data-src="صورة بوست 38.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 39">
+<img alt="بوستات سوشال ميديا 39" class="lazy-img" data-src="صورة بوست 39.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 40">
+<img alt="بوستات سوشال ميديا 40" class="lazy-img" data-src="صورة بوست 40.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 41">
+<img alt="بوستات سوشال ميديا 41" class="lazy-img" data-src="صورة بوست 41.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 42">
+<img alt="بوستات سوشال ميديا 42" class="lazy-img" data-src="صورة بوست 42.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 43">
+<img alt="بوستات سوشال ميديا 43" class="lazy-img" data-src="صورة بوست 43.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 44">
+<img alt="بوستات سوشال ميديا 44" class="lazy-img" data-src="صورة بوست 44.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 45">
+<img alt="بوستات سوشال ميديا 45" class="lazy-img" data-src="صورة بوست 45.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 46">
+<img alt="بوستات سوشال ميديا 46" class="lazy-img" data-src="صورة بوست 46.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 47">
+<img alt="بوستات سوشال ميديا 47" class="lazy-img" data-src="صورة بوست 47.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 48">
+<img alt="بوستات سوشال ميديا 48" class="lazy-img" data-src="صورة بوست 48.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 49">
+<img alt="بوستات سوشال ميديا 49" class="lazy-img" data-src="صورة بوست 49.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card" data-category="posts" data-title="بوستات سوشال ميديا 50">
+<img alt="بوستات سوشال ميديا 50" class="lazy-img" data-src="صورة بوست 50.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Social Media</span><h3>بوستات سوشال ميديا</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 1">
+<img alt="لوقو 1" class="lazy-img" data-src="لوقو 1.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 2">
+<img alt="لوقو 2" class="lazy-img" data-src="لوقو 2.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 3">
+<img alt="لوقو 3" class="lazy-img" data-src="لوقو 3.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 4">
+<img alt="لوقو 4" class="lazy-img" data-src="لوقو 4.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 5">
+<img alt="لوقو 5" class="lazy-img" data-src="لوقو 5.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 6">
+<img alt="لوقو 6" class="lazy-img" data-src="لوقو 6.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 7">
+<img alt="لوقو 7" class="lazy-img" data-src="لوقو 7.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 8">
+<img alt="لوقو 8" class="lazy-img" data-src="لوقو 8.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 9">
+<img alt="لوقو 9" class="lazy-img" data-src="لوقو 9.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 10">
+<img alt="لوقو 10" class="lazy-img" data-src="لوقو 10.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 11">
+<img alt="لوقو 11" class="lazy-img" data-src="لوقو 11.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 12">
+<img alt="لوقو 12" class="lazy-img" data-src="لوقو 12.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 13">
+<img alt="لوقو 13" class="lazy-img" data-src="لوقو 13.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 14">
+<img alt="لوقو 14" class="lazy-img" data-src="لوقو 14.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card logo-card" data-category="logos" data-title="لوقو 15">
+<img alt="لوقو 15" class="lazy-img" data-src="لوقو 15.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Logo Design</span><h3>لوقو</h3></div>
+</article>
+<article class="work-card facebook-cover-card" data-category="covers" data-title="غلاف فيسبوك 1">
+<img alt="غلاف فيسبوك 1" class="lazy-img" data-src="غلاف 1.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Facebook Cover</span><h3>غلاف فيسبوك</h3></div>
+</article>
+<article class="work-card facebook-cover-card" data-category="covers" data-title="غلاف فيسبوك 2">
+<img alt="غلاف فيسبوك 2" class="lazy-img" data-src="غلاف 2.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Facebook Cover</span><h3>غلاف فيسبوك</h3></div>
+</article>
+<article class="work-card facebook-cover-card" data-category="covers" data-title="غلاف فيسبوك 3">
+<img alt="غلاف فيسبوك 3" class="lazy-img" data-src="غلاف 3.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Facebook Cover</span><h3>غلاف فيسبوك</h3></div>
+</article>
+<article class="work-card facebook-cover-card" data-category="covers" data-title="غلاف فيسبوك 4">
+<img alt="غلاف فيسبوك 4" class="lazy-img" data-src="غلاف 4.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Facebook Cover</span><h3>غلاف فيسبوك</h3></div>
+</article>
+<article class="work-card facebook-cover-card" data-category="covers" data-title="غلاف فيسبوك 5">
+<img alt="غلاف فيسبوك 5" class="lazy-img" data-src="غلاف 5.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Facebook Cover</span><h3>غلاف فيسبوك</h3></div>
+</article>
+<article class="work-card facebook-cover-card" data-category="covers" data-title="غلاف فيسبوك 6">
+<img alt="غلاف فيسبوك 6" class="lazy-img" data-src="غلاف 6.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Facebook Cover</span><h3>غلاف فيسبوك</h3></div>
+</article>
+<article class="work-card facebook-cover-card" data-category="covers" data-title="غلاف فيسبوك 7">
+<img alt="غلاف فيسبوك 7" class="lazy-img" data-src="غلاف 7.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Facebook Cover</span><h3>غلاف فيسبوك</h3></div>
+</article>
+<article class="work-card facebook-cover-card" data-category="covers" data-title="غلاف فيسبوك 8">
+<img alt="غلاف فيسبوك 8" class="lazy-img" data-src="غلاف 8.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Facebook Cover</span><h3>غلاف فيسبوك</h3></div>
+</article>
+<article class="work-card facebook-cover-card" data-category="covers" data-title="غلاف فيسبوك 9">
+<img alt="غلاف فيسبوك 9" class="lazy-img" data-src="غلاف 9.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Facebook Cover</span><h3>غلاف فيسبوك</h3></div>
+</article>
+<article class="work-card facebook-cover-card" data-category="covers" data-title="غلاف فيسبوك 10">
+<img alt="غلاف فيسبوك 10" class="lazy-img" data-src="غلاف 10.png" decoding="async" fetchpriority="low" loading="lazy" src="assets/placeholder.svg"/>
+<div class="work-overlay"><span>Facebook Cover</span><h3>غلاف فيسبوك</h3></div>
+</article>
+</div><div class="load-more-wrap"><button class="load-more-btn magnetic" id="loadMoreBtn" type="button">شاهد المزيد من الأعمال</button></div><div id="loadMoreTrigger"></div></div>
+</section>
+</main>
+<nav aria-label="تنقل سريع" class="bottom-nav"><a aria-label="الرئيسية" class="nav-link-item" data-page="index" href="index.html"><i class="fa-solid fa-house"></i></a><a aria-label="التصاميم واللوقو" class="nav-link-item active" data-page="post" href="post.html"><i class="fa-solid fa-layer-group"></i></a><a aria-label="قبل وبعد" class="nav-link-item" data-page="after" href="after.html"><i class="fa-solid fa-arrow-right-arrow-left"></i></a><a aria-label="فيديوهات AI" class="nav-link-item" data-page="video" href="video.html"><i class="fa-solid fa-play"></i></a><a aria-label="آراء العملاء" class="nav-link-item" data-page="comments" href="comments.html"><i class="fa-solid fa-star"></i></a></nav>
+<div class="offcanvas offcanvas-bottom" id="mobileFilters" tabindex="-1"><div class="offcanvas-header"><button aria-label="إغلاق" class="btn-close" data-bs-dismiss="offcanvas" type="button"></button><h5 class="offcanvas-title">تنقل وتصنيفات المعرض</h5></div><div class="offcanvas-body"><div class="mobile-tabs"><a aria-current="" class="ghost-btn" data-bs-dismiss="offcanvas" href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a><a aria-current="page" class="ghost-btn" data-bs-dismiss="offcanvas" href="post.html"><i class="fa-solid fa-layer-group"></i> التصاميم واللوقو</a><a aria-current="" class="ghost-btn" data-bs-dismiss="offcanvas" href="after.html"><i class="fa-solid fa-arrow-right-arrow-left"></i> قبل وبعد</a><a aria-current="" class="ghost-btn" data-bs-dismiss="offcanvas" href="video.html"><i class="fa-solid fa-play"></i> فيديوهات AI</a><a aria-current="" class="ghost-btn" data-bs-dismiss="offcanvas" href="comments.html"><i class="fa-solid fa-star"></i> آراء العملاء</a></div><hr style="margin:18px 0;border-color:var(--line);opacity:.6"/><div class="mobile-tabs"><button class="filter-btn active" data-bs-dismiss="offcanvas" data-filter="all" type="button">الكل</button><button class="filter-btn" data-bs-dismiss="offcanvas" data-filter="posts" type="button">بوستات</button><button class="filter-btn" data-bs-dismiss="offcanvas" data-filter="logos" type="button">لوقو</button><button class="filter-btn" data-bs-dismiss="offcanvas" data-filter="covers" type="button">غلاف فيسبوك</button></div></div></div>
+<div aria-hidden="true" class="modal fade" id="previewModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered modal-xl">
+<div class="modal-content preview-content">
+<button aria-label="إغلاق" class="btn-close preview-close" data-bs-dismiss="modal" type="button"></button>
+<button aria-label="السابق" class="preview-nav preview-prev" type="button"><i class="fa-solid fa-chevron-right"></i></button>
+<button aria-label="التالي" class="preview-nav preview-next" type="button"><i class="fa-solid fa-chevron-left"></i></button>
+<div class="preview-counter" id="previewCounter">1 / 75</div>
+<img alt="معاينة العمل" id="modalImage" src=""/>
+<video controls="" controlslist="nodownload" id="modalVideo" playsinline="" style="display:none"></video>
+<div class="preview-info"><span id="modalCategory"></span><h2 id="modalTitle"></h2></div>
+</div>
+</div>
+</div>
+<button aria-label="العودة للأعلى" class="back-to-top" id="backToTop" type="button"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script id="post-performance-script">
+(()=>{
+  'use strict';
+
+  const qs=(s,r=document)=>r.querySelector(s);
+  const qsa=(s,r=document)=>Array.from(r.querySelectorAll(s));
+  const cards=qsa('.work-card');
+  const filterButtons=qsa('.filter-btn');
+  const searchInput=qs('#searchInput');
+  const loadMoreBtn=qs('#loadMoreBtn');
+  const modalElement=qs('#previewModal');
+  const modalImage=qs('#modalImage');
+  const modalVideo=qs('#modalVideo');
+  const modalTitle=qs('#modalTitle');
+  const modalCategory=qs('#modalCategory');
+  const previewCounter=qs('#previewCounter');
+  const previewPrev=qs('.preview-prev');
+  const previewNext=qs('.preview-next');
+  const connection=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
+  const effectiveType=(connection?.effectiveType||'').toLowerCase();
+  const slowNetwork=Boolean(connection?.saveData)||effectiveType==='slow-2g'||effectiveType==='2g';
+  const smallScreen=matchMedia('(max-width: 767px)').matches;
+  const initialBatch=slowNetwork?4:(smallScreen?6:8);
+  const batchStep=slowNetwork?4:8;
+  const lazyMargin=slowNetwork?'0px':(smallScreen?'60px':'100px');
+
+  let activeFilter='all';
+  let visibleCount=initialBatch;
+  let currentPreviewIndex=0;
+  let previewTouchStartX=0;
+  let previewModal=null;
+
+  // Bootstrap is already loaded just before this script. Create the modal only when needed.
+  const getModal=()=>{
+    if(!previewModal && modalElement && window.bootstrap?.Modal){
+      previewModal=bootstrap.Modal.getOrCreateInstance(modalElement);
+    }
+    return previewModal;
+  };
+
+  function cardMatches(card){
+    const search=(searchInput?.value||'').trim().toLowerCase();
+    const category=(card.dataset.category||'').toLowerCase();
+    const title=(card.dataset.title||'').toLowerCase();
+    return (activeFilter==='all'||category===activeFilter) && (!search||title.includes(search)||category.includes(search));
+  }
+
+  function setActiveFilter(filter){
+    filterButtons.forEach(btn=>btn.classList.toggle('active',btn.dataset.filter===filter));
+  }
+
+  function updateGallery(reset=true){
+    if(reset) visibleCount=initialBatch;
+    let matchIndex=0;
+    cards.forEach(card=>{
+      const match=cardMatches(card);
+      card.classList.toggle('hide',!match);
+      if(match){
+        card.classList.toggle('hidden-card',matchIndex>=visibleCount);
+        matchIndex++;
+      }else{
+        card.classList.add('hidden-card');
+      }
+    });
+    const remaining=Math.max(0,matchIndex-visibleCount);
+    if(loadMoreBtn){
+      loadMoreBtn.classList.toggle('is-hidden',remaining===0);
+      loadMoreBtn.setAttribute('aria-label',remaining?`شاهد المزيد من الأعمال، متبقي ${remaining}`:'تم عرض جميع الأعمال');
+    }
+  }
+
+  filterButtons.forEach(button=>button.addEventListener('click',()=>{
+    activeFilter=button.dataset.filter||'all';
+    setActiveFilter(activeFilter);
+    updateGallery(true);
+    qs('#portfolio')?.scrollIntoView({behavior:'smooth',block:'start'});
+  }));
+
+  let searchTimer=0;
+  searchInput?.addEventListener('input',()=>{
+    clearTimeout(searchTimer);
+    searchTimer=setTimeout(()=>updateGallery(true),120);
+  });
+
+  // Manual pagination is intentional: it prevents weak connections from downloading more images just because the user reached the page bottom.
+  loadMoreBtn?.addEventListener('click',()=>{
+    visibleCount+=batchStep;
+    updateGallery(false);
+  });
+
+  // Real lazy loading: only swap the placeholder when an image is actually close to the viewport.
+  const mediaObserver='IntersectionObserver' in window ? new IntersectionObserver((entries,observer)=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting) return;
+      const img=entry.target;
+      if(img.dataset.src){
+        img.src=img.dataset.src;
+        img.removeAttribute('data-src');
+      }
+      observer.unobserve(img);
+    });
+  },{rootMargin:lazyMargin,threshold:0.01}) : null;
+
+  qsa('.lazy-img').forEach((img,index)=>{
+    if(mediaObserver) mediaObserver.observe(img);
+    else if(img.dataset.src){img.src=img.dataset.src;img.removeAttribute('data-src');}
+    // First visible cards get normal/high priority; everything else stays explicitly low priority.
+    if(index>=2) img.fetchPriority='low';
+  });
+
+  function getPreviewCards(){
+    return cards.filter(card=>!card.classList.contains('hide')&&!card.classList.contains('hidden-card'));
+  }
+
+  function openPreviewByIndex(index){
+    const list=getPreviewCards();
+    if(!list.length) return;
+    currentPreviewIndex=(index+list.length)%list.length;
+    const card=list[currentPreviewIndex];
+    const img=qs('img',card);
+    const src=img?.dataset.src||img?.currentSrc||img?.src||'';
+    if(!src) return;
+
+    if(modalVideo){
+      modalVideo.pause();
+      modalVideo.removeAttribute('src');
+      modalVideo.style.display='none';
+    }
+    if(modalImage){
+      modalImage.style.display='block';
+      modalImage.src=src;
+      modalImage.alt=img?.alt||'';
+    }
+    if(modalTitle) modalTitle.textContent=card.dataset.title||'';
+    if(modalCategory) modalCategory.textContent=qs('.work-overlay span',card)?.textContent||card.dataset.category||'';
+    if(previewCounter) previewCounter.textContent=`${currentPreviewIndex+1} / ${list.length}`;
+    getModal()?.show();
+  }
+
+  cards.forEach(card=>card.addEventListener('click',()=>{
+    const list=getPreviewCards();
+    const index=list.indexOf(card);
+    if(index>=0) openPreviewByIndex(index);
+  }));
+
+  previewPrev?.addEventListener('click',e=>{e.stopPropagation();openPreviewByIndex(currentPreviewIndex-1);});
+  previewNext?.addEventListener('click',e=>{e.stopPropagation();openPreviewByIndex(currentPreviewIndex+1);});
+  modalElement?.addEventListener('touchstart',e=>{previewTouchStartX=e.touches[0]?.clientX||0;},{passive:true});
+  modalElement?.addEventListener('touchend',e=>{
+    const end=e.changedTouches[0]?.clientX||0;
+    const dx=end-previewTouchStartX;
+    if(Math.abs(dx)<45) return;
+    openPreviewByIndex(currentPreviewIndex+(dx>0?-1:1));
+  },{passive:true});
+  modalElement?.addEventListener('hidden.bs.modal',()=>{
+    if(modalImage){modalImage.removeAttribute('src');modalImage.style.display='block';}
+  });
+
+  // Keep the exact existing theme behavior/key so other pages remain synchronized.
+  const themeToggle=qs('#themeToggle');
+  const savedTheme=localStorage.getItem('ebdaa-theme');
+  if(savedTheme==='dark'){
+    document.body.classList.add('dark-mode');
+    if(themeToggle) themeToggle.innerHTML='<i class="fa-solid fa-sun"></i>';
+  }
+  themeToggle?.addEventListener('click',()=>{
+    document.body.classList.toggle('dark-mode');
+    const dark=document.body.classList.contains('dark-mode');
+    localStorage.setItem('ebdaa-theme',dark?'dark':'light');
+    themeToggle.innerHTML=dark?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>';
+  });
+
+  // Reveal effects, but do not spend work on hidden cards.
+  if('IntersectionObserver' in window){
+    const revealObserver=new IntersectionObserver((entries,observer)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
+      });
+    },{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+    qsa('.reveal').forEach(el=>revealObserver.observe(el));
+  }else qsa('.reveal').forEach(el=>el.classList.add('visible'));
+
+  const header=qs('#topHeader');
+  const backToTop=qs('#backToTop');
+  const progress=qs('#scrollProgressBar');
+  let ticking=false;
+  function updateScrollUI(){
+    ticking=false;
+    const y=window.scrollY;
+    header?.classList.toggle('scrolled',y>25);
+    backToTop?.classList.toggle('show',y>650);
+    if(progress){
+      const max=document.documentElement.scrollHeight-innerHeight;
+      progress.style.width=(max>0?Math.max(0,Math.min(100,(y/max)*100)):0)+'%';
+    }
+  }
+  addEventListener('scroll',()=>{
+    if(!ticking){ticking=true;requestAnimationFrame(updateScrollUI);}
+  },{passive:true});
+  addEventListener('resize',updateScrollUI,{passive:true});
+  updateScrollUI();
+  backToTop?.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+
+  // Keep desktop polish, skip costly pointer tracking on touch devices.
+  if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+    const cursor=qs('.cursor-dot');
+    addEventListener('mousemove',e=>{
+      if(cursor){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px';}
+    },{passive:true});
+    qsa('.magnetic').forEach(el=>{
+      el.addEventListener('mousemove',e=>{
+        const r=el.getBoundingClientRect();
+        el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.16}px,${(e.clientY-r.top-r.height/2)*.16}px)`;
+      });
+      el.addEventListener('mouseleave',()=>{el.style.transform='';});
+    });
+  }
+
+  const filters=qs('#mobileFilters');
+  filters?.addEventListener('show.bs.offcanvas',()=>document.body.classList.add('filters-open'));
+  filters?.addEventListener('hidden.bs.offcanvas',()=>document.body.classList.remove('filters-open'));
+
+  updateGallery(true);
+})();
+</script>
+<div aria-live="polite" class="swipe-toast" id="swipeToast" role="status">
+<i class="fa-solid fa-hand-pointer"></i>
+<span>اسحب يمين ويسار للتنقل بين الأعمال</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title> Spike Media | معرض الأعمال</title>
+<meta content="معرض أعمال Spike Media  لتصاميم السوشيال وفيديوهات AI." name="description"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&amp;family=Montserrat:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet">
+<style id="index-only-final-fixes">
+/* index-only final fixes */
+.scroll-progress{position:fixed!important;top:auto!important;bottom:0!important;right:0!important;left:0!important;height:4px!important;z-index:2300!important;background:rgba(255,255,255,.08)!important;pointer-events:none!important}
+.scroll-progress span{display:block;width:0%;height:100%;background:var(--gradient);box-shadow:0 0 18px rgba(58,123,255,.45);transition:width .08s linear}
+body.filters-open .back-to-top{opacity:0!important;pointer-events:none!important;transform:translateY(16px) scale(.92)!important}
+.offcanvas-bottom{z-index:1250!important;bottom:92px!important;left:18px!important;right:18px!important;max-width:650px;margin-inline:auto;padding:10px 8px 14px;box-shadow:0 28px 80px rgba(11,22,72,.22)!important}
+.offcanvas-backdrop{z-index:1240!important}
+.mobile-tabs{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+.filter-btn{min-height:54px;display:flex;align-items:center;justify-content:center;text-align:center;white-space:nowrap}
+.preview-content.video-open .preview-nav{display:none!important}
+.preview-content.video-open .preview-counter{right:18px!important}
+.preview-counter{position:absolute;top:18px;right:72px;z-index:5;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;font-weight:900;backdrop-filter:blur(18px);direction:ltr}
+.preview-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:52px;height:52px;border:0;border-radius:50%;color:#fff;background:rgba(255,255,255,.14);backdrop-filter:blur(18px);box-shadow:0 14px 34px rgba(0,0,0,.20);transition:.25s ease}
+.preview-nav:hover{background:var(--gradient)}
+.preview-prev{right:18px}.preview-next{left:18px}
+.load-more-wrap{display:flex;justify-content:center;padding:22px 0 10px}
+.load-more-btn{border:0;border-radius:999px;padding:14px 34px;font-weight:950;color:#fff;background:var(--gradient);box-shadow:0 18px 42px rgba(41,121,255,.20);transition:.25s ease}
+.load-more-btn.is-hidden{display:none!important}
+.back-to-top{position:fixed;left:22px;bottom:96px;z-index:1200;width:48px;height:48px;border:0;border-radius:50%;color:#fff;background:var(--gradient);box-shadow:0 20px 48px rgba(36,118,255,.26);opacity:0;transform:translateY(16px) scale(.92);pointer-events:none;transition:.25s ease}
+.back-to-top.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+body.dark-mode .offcanvas-bottom{background:rgba(7,14,34,.92)!important;border-color:rgba(255,255,255,.12)!important}
+body.dark-mode .filter-btn{background:rgba(255,255,255,.08)!important;border-color:rgba(255,255,255,.12)!important;color:#fff!important}
+body.dark-mode .filter-btn.active,body.dark-mode .filter-btn:hover{background:var(--gradient)!important;border-color:transparent!important}
+body.dark-mode .top-header,body.dark-mode .top-header.scrolled{background:rgba(7,14,34,.78)!important;border:1px solid rgba(255,255,255,.12)!important;box-shadow:0 18px 50px rgba(0,0,0,.34)!important;backdrop-filter:blur(24px)!important}
+body.dark-mode .brand-copy strong,body.dark-mode .brand-copy span{color:#ffffff!important;text-shadow:0 2px 14px rgba(0,0,0,.45)!important}
+body.dark-mode .bottom-nav{background:rgba(7,14,34,.82)!important;border:1px solid rgba(255,255,255,.14)!important;box-shadow:0 22px 58px rgba(0,0,0,.38)!important}
+body.dark-mode .bottom-nav a{color:#aeb8d4!important}
+body.dark-mode .bottom-nav a.active,body.dark-mode .bottom-nav a:hover{background:var(--gradient)!important;color:#fff!important}
+@media(max-width:767px){.preview-nav{width:44px;height:44px}.preview-prev{right:10px}.preview-next{left:10px}.preview-counter{top:14px;right:56px;font-size:.86rem}.back-to-top{left:16px;bottom:92px;width:44px;height:44px}}
+
+/* Trust strip + swipe toast */
+.trust-strip{
+  margin-top:18px;
+  padding:13px 16px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px 18px;
+  background:rgba(255,255,255,.66);
+  border:1px solid rgba(255,255,255,.78);
+  box-shadow:0 18px 50px rgba(11,22,72,.08);
+  backdrop-filter:blur(18px);
+}
+.trust-strip span{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#344160;
+  font-weight:900;
+  font-size:.94rem;
+  white-space:nowrap;
+}
+.trust-strip i{
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.swipe-toast{
+  position:fixed;
+  left:50%;
+  bottom:172px;
+  transform:translateX(-50%) translateY(18px) scale(.96);
+  z-index:2400;
+  min-width:min(360px,calc(100% - 42px));
+  padding:13px 18px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  color:#fff;
+  font-weight:950;
+  background:rgba(5,10,25,.78);
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 22px 60px rgba(0,0,0,.24);
+  backdrop-filter:blur(20px);
+  opacity:0;
+  pointer-events:none;
+  transition:.28s ease;
+}
+.swipe-toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0) scale(1);
+}
+.swipe-toast i{
+  color:#62D9FF;
+}
+body.dark-mode .trust-strip{
+  background:rgba(255,255,255,.07);
+  border-color:rgba(255,255,255,.12);
+}
+body.dark-mode .trust-strip span{
+  color:#dfe7ff;
+}
+@media(max-width:575px){
+  .trust-strip{
+    border-radius:28px;
+    justify-content:flex-start;
+    padding:14px 16px;
+    gap:12px;
+  }
+  .trust-strip span{
+    width:calc(50% - 8px);
+    font-size:.86rem;
+  }
+  .swipe-toast{
+    bottom:164px;
+    font-size:.88rem;
+  }
+}
+
+</style>
+</link><style id="split-pages-links">
+/* Page split: keeps the existing visual identity and only marks current page. */
+.bottom-nav a[data-page="index"]{background:var(--gradient);color:#fff;transform:translateY(-3px)}
+#mobileFilters .ghost-btn{min-height:52px;padding:12px 14px;text-decoration:none}
+@media(max-width:575px){#mobileFilters .ghost-btn{font-size:.88rem}}
+</style></head>
+<body data-current-page="index">
+<div aria-hidden="true" class="scroll-progress"><span id="scrollProgressBar"></span></div>
+<div class="cursor-dot"></div>
+<div class="page-glow glow-one"></div>
+<div class="page-glow glow-two"></div>
+<header class="site-header" id="topHeader">
+<div class="container-fluid page-container">
+<nav class="navbar-wrap">
+<a aria-label="Spike Media" class="brand-box" href="index.html">
+<img alt="EbdAA Media Logo" class="brand-logo" src="assets/logo.png"/>
+<div class="brand-text"><strong>Spike Media للتصميم والتسويق الرقمي</strong></div>
+</a>
+<div class="nav-actions">
+<button aria-label="تبديل الوضع" class="theme-toggle-btn magnetic" id="themeToggle" type="button"><i class="fa-solid fa-moon"></i></button>
+<button aria-label="فتح الفلاتر" class="mobile-menu-btn magnetic" data-bs-target="#mobileFilters" data-bs-toggle="offcanvas" type="button"><i class="fa-solid fa-sliders"></i></button>
+</div>
+</nav>
+</div>
+</header>
+<main>
+<section class="hero-section reveal" id="home">
+<div class="container-fluid page-container">
+<div class="hero-card parallax-card">
+<div class="hero-copy">
+<h1 class="hero-main-title"><span class="title-brand">Spike Media</span></h1>
+<div class="services-row">
+<span><i class="fa-solid fa-pen-nib"></i> تصاميم جرافيك</span>
+<span><i class="fa-solid fa-bullhorn"></i> إعلانات ممولة</span>
+<span><i class="fa-solid fa-chart-line"></i> خطط تسويقية</span>
+<span><i class="fa-solid fa-users-gear"></i> إدارة صفحات</span>
+<span><i class="fa-solid fa-feather-pointed"></i> كتابة محتوى</span>
+<span><i class="fa-solid fa-play"></i> فيديوهات AI</span>
+</div>
+<div class="hero-actions">
+<a class="primary-btn magnetic" href="post.html">شاهد الأعمال</a>
+<a class="ghost-btn whatsapp-btn magnetic" href="https://wa.me/972594647856" rel="noopener" target="_blank">
+<i class="fa-brands fa-whatsapp"></i> Whatsapp
+</a>
+<a class="ghost-btn instagram-btn magnetic" href="https://www.instagram.com/spike_media1?stkn=MTd0bXVmc2g5dGdhag==" rel="noopener" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+<a class="ghost-btn facebook-btn magnetic" href="https://www.facebook.com/profile.php?id=61584873804534" rel="noopener" target="_blank"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+</div>
+<div aria-label="أقسام الموقع" class="hero-actions"><a class="ghost-btn magnetic" href="post.html"><i class="fa-solid fa-layer-group"></i> التصاميم واللوقو</a><a class="ghost-btn magnetic" href="after.html"><i class="fa-solid fa-arrow-right-arrow-left"></i> قبل وبعد</a><a class="ghost-btn magnetic" href="video.html"><i class="fa-solid fa-play"></i> الفيديوهات / Reels</a><a class="ghost-btn magnetic" href="comments.html"><i class="fa-solid fa-star"></i> آراء العملاء</a></div></div>
+<div class="hero-logo-wrap"><div class="logo-orbit"></div><img alt="Spike Media" class="hero-logo" src="assets/logo.png"/></div>
+</div>
+</div>
+</section>
+<section class="stats-section reveal">
+<div class="container-fluid page-container">
+<div class="stats-grid">
+<div class="stat-card"><strong data-count="250">0</strong><span>تصميم</span></div>
+<div class="stat-card"><strong data-count="35">0</strong><span>عميل</span></div>
+<div class="stat-card"><strong data-count="2000" data-suffix="K">0</strong><span>مشاهدة</span></div>
+<div class="stat-card"><strong data-count="30">0</strong><span>فيديو AI</span></div>
+</div>
+<div aria-label=" مميزات Spike Media" class="trust-strip reveal">
+<span><i class="fa-solid fa-pen-nib"></i> تصاميم للسوشال</span>
+<span><i class="fa-solid fa-bullhorn"></i> محتوى إعلاني</span>
+<span><i class="fa-solid fa-play"></i> فيديوهات AI</span>
+<span><i class="fa-solid fa-chart-line"></i> متابعة وتطوير</span>
+</div>
+</div>
+</section>
+
+
+
+
+<section class="workflow-section section-block reveal" id="workflow">
+<div class="container-fluid page-container">
+<div class="section-head">
+<div><p class="section-label">Our Process</p><h2>كيف نشتغل؟</h2></div>
+<p class="section-note">خطوات بسيطة وواضحة من الفكرة إلى النشر والتطوير.</p>
+</div>
+<div class="workflow-grid">
+<article class="workflow-card reveal">
+<span>01</span>
+<i class="fa-solid fa-lightbulb"></i>
+<h3>نسمع فكرتك</h3>
+<p>نفهم هدفك والجمهور والرسالة المطلوبة قبل أي تصميم.</p>
+</article>
+<article class="workflow-card reveal">
+<span>02</span>
+<i class="fa-solid fa-pen-nib"></i>
+<h3>نصمم الاتجاه</h3>
+<p>نحدد الأسلوب البصري المناسب ونبني شكل قوي للعلامة.</p>
+</article>
+<article class="workflow-card reveal">
+<span>03</span>
+<i class="fa-solid fa-wand-magic-sparkles"></i>
+<h3>نجهز المحتوى</h3>
+<p>نرتب النصوص والتصاميم والفيديوهات بشكل جاهز للنشر.</p>
+</article>
+<article class="workflow-card reveal">
+<span>04</span>
+<i class="fa-solid fa-rocket"></i>
+<h3>ننشر ونطور</h3>
+<p>نراجع الأداء ونحسن الشكل والمحتوى لتحقيق نتيجة أقوى.</p>
+</article>
+</div>
+</div>
+</section>
+
+</main>
+<nav aria-label="تنقل سريع" class="bottom-nav"><a aria-label="الرئيسية" class="nav-link-item active" data-page="index" href="index.html"><i class="fa-solid fa-house"></i></a><a aria-label="التصاميم واللوقو" class="nav-link-item" data-page="post" href="post.html"><i class="fa-solid fa-layer-group"></i></a><a aria-label="قبل وبعد" class="nav-link-item" data-page="after" href="after.html"><i class="fa-solid fa-arrow-right-arrow-left"></i></a><a aria-label="فيديوهات AI" class="nav-link-item" data-page="video" href="video.html"><i class="fa-solid fa-play"></i></a><a aria-label="آراء العملاء" class="nav-link-item" data-page="comments" href="comments.html"><i class="fa-solid fa-star"></i></a></nav>
+<div class="offcanvas offcanvas-bottom" id="mobileFilters" tabindex="-1"><div class="offcanvas-header"><button aria-label="إغلاق" class="btn-close" data-bs-dismiss="offcanvas" type="button"></button><h5 class="offcanvas-title">تنقل بين الصفحات</h5></div><div class="offcanvas-body"><div class="mobile-tabs"><a aria-current="page" class="ghost-btn" data-bs-dismiss="offcanvas" href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a><a aria-current class="ghost-btn" data-bs-dismiss="offcanvas" href="post.html"><i class="fa-solid fa-layer-group"></i> التصاميم واللوقو</a><a aria-current class="ghost-btn" data-bs-dismiss="offcanvas" href="after.html"><i class="fa-solid fa-arrow-right-arrow-left"></i> قبل وبعد</a><a aria-current class="ghost-btn" data-bs-dismiss="offcanvas" href="video.html"><i class="fa-solid fa-play"></i> فيديوهات AI</a><a aria-current class="ghost-btn" data-bs-dismiss="offcanvas" href="comments.html"><i class="fa-solid fa-star"></i> آراء العملاء</a></div></div></div>
+
+<button aria-label="العودة للأعلى" class="back-to-top" id="backToTop" type="button"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

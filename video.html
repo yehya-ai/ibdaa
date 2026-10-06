@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Spike Media | فيديوهات الموشن والريلز</title>
+<meta content="معرض فيديوهات الموشن والريلز من Spike Media بإخراج بصري احترافي." name="description"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&amp;family=Montserrat:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet">
+<style id="index-only-final-fixes">
+/* index-only final fixes */
+.scroll-progress{position:fixed!important;top:auto!important;bottom:0!important;right:0!important;left:0!important;height:4px!important;z-index:2300!important;background:rgba(255,255,255,.08)!important;pointer-events:none!important}
+.scroll-progress span{display:block;width:0%;height:100%;background:var(--gradient);box-shadow:0 0 18px rgba(58,123,255,.45);transition:width .08s linear}
+body.filters-open .back-to-top{opacity:0!important;pointer-events:none!important;transform:translateY(16px) scale(.92)!important}
+.offcanvas-bottom{z-index:1250!important;bottom:92px!important;left:18px!important;right:18px!important;max-width:650px;margin-inline:auto;padding:10px 8px 14px;box-shadow:0 28px 80px rgba(11,22,72,.22)!important}
+.offcanvas-backdrop{z-index:1240!important}
+.mobile-tabs{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+.filter-btn{min-height:54px;display:flex;align-items:center;justify-content:center;text-align:center;white-space:nowrap}
+.preview-content.video-open .preview-nav{display:none!important}
+.preview-content.video-open .preview-counter{right:18px!important}
+.preview-counter{position:absolute;top:18px;right:72px;z-index:5;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;font-weight:900;backdrop-filter:blur(18px);direction:ltr}
+.preview-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:52px;height:52px;border:0;border-radius:50%;color:#fff;background:rgba(255,255,255,.14);backdrop-filter:blur(18px);box-shadow:0 14px 34px rgba(0,0,0,.20);transition:.25s ease}
+.preview-nav:hover{background:var(--gradient)}
+.preview-prev{right:18px}.preview-next{left:18px}
+.load-more-wrap{display:flex;justify-content:center;padding:22px 0 10px}
+.load-more-btn{border:0;border-radius:999px;padding:14px 34px;font-weight:950;color:#fff;background:var(--gradient);box-shadow:0 18px 42px rgba(41,121,255,.20);transition:.25s ease}
+.load-more-btn.is-hidden{display:none!important}
+.back-to-top{position:fixed;left:22px;bottom:96px;z-index:1200;width:48px;height:48px;border:0;border-radius:50%;color:#fff;background:var(--gradient);box-shadow:0 20px 48px rgba(36,118,255,.26);opacity:0;transform:translateY(16px) scale(.92);pointer-events:none;transition:.25s ease}
+.back-to-top.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+body.dark-mode .offcanvas-bottom{background:rgba(7,14,34,.92)!important;border-color:rgba(255,255,255,.12)!important}
+body.dark-mode .filter-btn{background:rgba(255,255,255,.08)!important;border-color:rgba(255,255,255,.12)!important;color:#fff!important}
+body.dark-mode .filter-btn.active,body.dark-mode .filter-btn:hover{background:var(--gradient)!important;border-color:transparent!important}
+body.dark-mode .top-header,body.dark-mode .top-header.scrolled{background:rgba(7,14,34,.78)!important;border:1px solid rgba(255,255,255,.12)!important;box-shadow:0 18px 50px rgba(0,0,0,.34)!important;backdrop-filter:blur(24px)!important}
+body.dark-mode .brand-copy strong,body.dark-mode .brand-copy span{color:#ffffff!important;text-shadow:0 2px 14px rgba(0,0,0,.45)!important}
+body.dark-mode .bottom-nav{background:rgba(7,14,34,.82)!important;border:1px solid rgba(255,255,255,.14)!important;box-shadow:0 22px 58px rgba(0,0,0,.38)!important}
+body.dark-mode .bottom-nav a{color:#aeb8d4!important}
+body.dark-mode .bottom-nav a.active,body.dark-mode .bottom-nav a:hover{background:var(--gradient)!important;color:#fff!important}
+@media(max-width:767px){.preview-nav{width:44px;height:44px}.preview-prev{right:10px}.preview-next{left:10px}.preview-counter{top:14px;right:56px;font-size:.86rem}.back-to-top{left:16px;bottom:92px;width:44px;height:44px}}
+
+/* Trust strip + swipe toast */
+.trust-strip{
+  margin-top:18px;
+  padding:13px 16px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px 18px;
+  background:rgba(255,255,255,.66);
+  border:1px solid rgba(255,255,255,.78);
+  box-shadow:0 18px 50px rgba(11,22,72,.08);
+  backdrop-filter:blur(18px);
+}
+.trust-strip span{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#344160;
+  font-weight:900;
+  font-size:.94rem;
+  white-space:nowrap;
+}
+.trust-strip i{
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.swipe-toast{
+  position:fixed;
+  left:50%;
+  bottom:172px;
+  transform:translateX(-50%) translateY(18px) scale(.96);
+  z-index:2400;
+  min-width:min(360px,calc(100% - 42px));
+  padding:13px 18px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  color:#fff;
+  font-weight:950;
+  background:rgba(5,10,25,.78);
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 22px 60px rgba(0,0,0,.24);
+  backdrop-filter:blur(20px);
+  opacity:0;
+  pointer-events:none;
+  transition:.28s ease;
+}
+.swipe-toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0) scale(1);
+}
+.swipe-toast i{
+  color:#62D9FF;
+}
+body.dark-mode .trust-strip{
+  background:rgba(255,255,255,.07);
+  border-color:rgba(255,255,255,.12);
+}
+body.dark-mode .trust-strip span{
+  color:#dfe7ff;
+}
+@media(max-width:575px){
+  .trust-strip{
+    border-radius:28px;
+    justify-content:flex-start;
+    padding:14px 16px;
+    gap:12px;
+  }
+  .trust-strip span{
+    width:calc(50% - 8px);
+    font-size:.86rem;
+  }
+  .swipe-toast{
+    bottom:164px;
+    font-size:.88rem;
+  }
+}
+
+</style>
+</link><style id="split-pages-links">
+/* Page split: keeps the existing visual identity and only marks current page. */
+.bottom-nav a[data-page="video"]{background:var(--gradient);color:#fff;transform:translateY(-3px)}
+#mobileFilters .ghost-btn{min-height:52px;padding:12px 14px;text-decoration:none}
+@media(max-width:575px){#mobileFilters .ghost-btn{font-size:.88rem}}
+</style>
+<style id="video-page-premium-layout">
+/* Video page only: professional portfolio grid. Existing brand colors/nav/assets stay untouched. */
+body[data-current-page="video"] .ai-videos-section{padding-top:34px}
+body[data-current-page="video"] .video-section-head{align-items:center;margin-bottom:28px}
+body[data-current-page="video"] .video-section-head .section-note{margin:0;max-width:570px}
+
+/* Override the old horizontal carousel only on video.html. */
+body[data-current-page="video"] .ai-videos-section.reveal,
+body[data-current-page="video"] #aiVideoCarousel .ai-video-card.reveal{
+  opacity:1!important;
+  transform:none!important;
+}
+body[data-current-page="video"] #aiVideoCarousel.video-carousel{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:20px!important;
+  overflow:visible!important;
+  padding:0!important;
+  margin:0!important;
+  scroll-snap-type:none!important;
+  cursor:default!important;
+}
+body[data-current-page="video"] #aiVideoCarousel .ai-video-card{
+  position:relative;
+  flex:none!important;
+  width:auto!important;
+  max-width:none!important;
+  padding:12px!important;
+  border-radius:28px!important;
+  overflow:hidden;
+  content-visibility:auto;
+  contain-intrinsic-size:540px;
+  transform:translateZ(0);
+  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+}
+body[data-current-page="video"] #aiVideoCarousel .ai-video-card:hover{
+  transform:translateY(-7px)!important;
+  box-shadow:0 30px 78px rgba(37,99,255,.16)!important;
+}
+body[data-current-page="video"] #aiVideoCarousel .ai-video-frame{
+  aspect-ratio:9/16!important;
+  border-radius:22px!important;
+  background:#081126;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+}
+body[data-current-page="video"] #aiVideoCarousel .ai-video-frame video{
+  width:100%;height:100%;object-fit:cover;
+  transform:scale(1.001);
+}
+body[data-current-page="video"] #aiVideoCarousel .ai-video-frame:after{
+  background:linear-gradient(180deg,rgba(5,10,25,.02) 40%,rgba(5,10,25,.50) 100%);
+}
+body[data-current-page="video"] #aiVideoCarousel .video-play{
+  width:62px;height:62px;
+  background:rgba(255,255,255,.94);
+  box-shadow:0 16px 42px rgba(0,0,0,.24);
+  transition:transform .25s ease,background .25s ease,color .25s ease;
+}
+body[data-current-page="video"] #aiVideoCarousel .ai-video-card:hover .video-play{
+  transform:translate(-50%,-50%) scale(1.08);
+  background:var(--gradient);
+  color:#fff;
+}
+body[data-current-page="video"] #aiVideoCarousel .video-badge{
+  top:14px;right:14px;
+  padding:8px 13px;
+  font-size:.78rem;
+  box-shadow:0 10px 28px rgba(37,99,255,.20);
+}
+body[data-current-page="video"] #aiVideoCarousel .ai-video-card h3{
+  margin:15px 5px 5px;
+  font-size:1.12rem;
+  line-height:1.5;
+}
+body[data-current-page="video"] #aiVideoCarousel .ai-video-card p{
+  margin:0 5px 7px;
+  font-size:.88rem;
+  line-height:1.65;
+  color:#617096;
+}
+body[data-current-page="video"].dark-mode #aiVideoCarousel .ai-video-card:hover{
+  box-shadow:0 30px 80px rgba(0,0,0,.34)!important;
+  border-color:rgba(255,255,255,.15)!important;
+}
+
+@media(max-width:1199px){
+  body[data-current-page="video"] #aiVideoCarousel.video-carousel{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important}
+}
+@media(max-width:767px){
+  body[data-current-page="video"] #aiVideoCarousel.video-carousel{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+  body[data-current-page="video"] #aiVideoCarousel .ai-video-card{padding:9px!important;border-radius:22px!important}
+  body[data-current-page="video"] #aiVideoCarousel .ai-video-card h3{font-size:.98rem;margin:11px 3px 3px}
+  body[data-current-page="video"] #aiVideoCarousel .ai-video-card p{font-size:.78rem;margin:0 3px 4px;line-height:1.55}
+  body[data-current-page="video"] #aiVideoCarousel .video-badge{font-size:.68rem;padding:6px 9px;top:9px;right:9px}
+  body[data-current-page="video"] #aiVideoCarousel .video-play{width:50px;height:50px;font-size:1.05rem}
+}
+@media(max-width:575px){
+  body[data-current-page="video"] .ai-videos-section{padding-top:22px}
+  body[data-current-page="video"] .video-section-head{margin-bottom:18px}
+  body[data-current-page="video"] .video-section-head .section-note{font-size:.9rem;line-height:1.7}
+  body[data-current-page="video"] #aiVideoCarousel.video-carousel{gap:12px!important}
+  body[data-current-page="video"] #aiVideoCarousel .ai-video-frame{border-radius:16px!important}
+  body[data-current-page="video"] #aiVideoCarousel .ai-video-card p{display:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  body[data-current-page="video"] #aiVideoCarousel .ai-video-card,
+  body[data-current-page="video"] #aiVideoCarousel .video-play{transition:none!important}
+}
+</style>
+</head>
+<body data-current-page="video">
+<div aria-hidden="true" class="scroll-progress"><span id="scrollProgressBar"></span></div>
+<div class="cursor-dot"></div>
+<div class="page-glow glow-one"></div>
+<div class="page-glow glow-two"></div>
+<header class="site-header" id="topHeader">
+<div class="container-fluid page-container">
+<nav class="navbar-wrap">
+<a aria-label="Spike Media" class="brand-box" href="index.html">
+<img alt="EbdAA Media Logo" class="brand-logo" src="assets/logo.png"/>
+<div class="brand-text"><strong>Spike Media للتصميم والتسويق الرقمي</strong></div>
+</a>
+<div class="nav-actions">
+<button aria-label="تبديل الوضع" class="theme-toggle-btn magnetic" id="themeToggle" type="button"><i class="fa-solid fa-moon"></i></button>
+<button aria-label="فتح الفلاتر" class="mobile-menu-btn magnetic" data-bs-target="#mobileFilters" data-bs-toggle="offcanvas" type="button"><i class="fa-solid fa-sliders"></i></button>
+</div>
+</nav>
+</div>
+</header>
+<main>
+
+
+
+
+
+<section class="ai-videos-section section-block reveal" id="aiVideos">
+<div class="container-fluid page-container">
+<div class="section-head video-section-head">
+<div><p class="section-label">Motion &amp; Reels Portfolio</p><h2>فيديوهات الموشن والريلز</h2></div>
+<p class="section-note">نماذج مختارة من أعمال الموشن والريلز بإخراج بصري احترافي. اضغط على أي عمل لمشاهدته بالحجم الكامل.</p>
+</div>
+<div class="ai-video-grid video-carousel" id="aiVideoCarousel">
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 1.mp4" muted="" playsinline="" poster="واجهة فيديو 1.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>موشن وريلز إعلاني بإخراج بصري احترافي.</p>
+</article>
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 2.mp4" muted="" playsinline="" poster="واجهة فيديو 2.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>موشن وريلز إعلاني بإخراج بصري احترافي.</p>
+</article>
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 3.mp4" muted="" playsinline="" poster="واجهة فيديو 3.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>موشن وريلز إعلاني بإخراج بصري احترافي.</p>
+</article>
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 4.mp4" muted="" playsinline="" poster="واجهة فيديو 4.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>موشن وريلز إعلاني بإخراج بصري احترافي.</p>
+</article>
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز وجه">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 5.mp4" muted="" playsinline="" poster="واجهة فيديو 5.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>موشن وريلز إعلاني بإخراج بصري احترافي.</p>
+</article>
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 6.mp4" muted="" playsinline="" poster="واجهة فيديو 6.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>موشن وريلز إعلاني بإخراج بصري احترافي.</p>
+</article>
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 7.mp4" muted="" playsinline="" poster="واجهة فيديو 7.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>موشن وريلز إعلاني بإخراج بصري احترافي.</p>
+</article>
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 8.mp4" muted="" playsinline="" poster="واجهة فيديو 8.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>موشن وريلز إعلاني بإخراج بصري احترافي.</p>
+</article>
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 9.mp4" muted="" playsinline="" poster="واجهة فيديو 9.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>موشن وريلز إعلاني بإخراج بصري احترافي.</p>
+</article>
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 10.mp4" muted="" playsinline="" poster="واجهة فيديو 10.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>موشن وريلز إعلاني بإخراج بصري احترافي.</p>
+</article>
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 11.mp4" muted="" playsinline="" poster="واجهة فيديو 11.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>عمل موشن وريلز بإخراج بصري احترافي.</p>
+</article>
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 12.mp4" muted="" playsinline="" poster="واجهة فيديو 12.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>عمل موشن وريلز بإخراج بصري احترافي.</p>
+</article>
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 13.mp4" muted="" playsinline="" poster="واجهة فيديو 13.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>عمل موشن وريلز بإخراج بصري احترافي.</p>
+</article>
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 14.mp4" muted="" playsinline="" poster="واجهة فيديو 14.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>عمل موشن وريلز بإخراج بصري احترافي.</p>
+</article>
+<article class="ai-video-card reveal" data-category="Motion &amp; Reels" data-title="موشن وريلز">
+<div class="ai-video-frame">
+<video class="lazy-video" data-src="فيديو 15.mp4" muted="" playsinline="" poster="واجهة فيديو 15.png" preload="none"></video>
+<button aria-label="تشغيل الفيديو" class="video-play" type="button"><i class="fa-solid fa-play"></i></button>
+<span class="video-badge">موشن وريلز</span>
+</div>
+<h3>موشن وريلز</h3>
+<p>عمل موشن وريلز بإخراج بصري احترافي.</p>
+</article></div>
+</div>
+</section>
+
+
+</main>
+<nav aria-label="تنقل سريع" class="bottom-nav"><a aria-label="الرئيسية" class="nav-link-item" data-page="index" href="index.html"><i class="fa-solid fa-house"></i></a><a aria-label="التصاميم واللوقو" class="nav-link-item" data-page="post" href="post.html"><i class="fa-solid fa-layer-group"></i></a><a aria-label="قبل وبعد" class="nav-link-item" data-page="after" href="after.html"><i class="fa-solid fa-arrow-right-arrow-left"></i></a><a aria-label="فيديوهات الموشن والريلز" class="nav-link-item active" data-page="video" href="video.html"><i class="fa-solid fa-play"></i></a><a aria-label="آراء العملاء" class="nav-link-item" data-page="comments" href="comments.html"><i class="fa-solid fa-star"></i></a></nav>
+<div class="offcanvas offcanvas-bottom" id="mobileFilters" tabindex="-1"><div class="offcanvas-header"><button aria-label="إغلاق" class="btn-close" data-bs-dismiss="offcanvas" type="button"></button><h5 class="offcanvas-title">تنقل بين الصفحات</h5></div><div class="offcanvas-body"><div class="mobile-tabs"><a aria-current class="ghost-btn" data-bs-dismiss="offcanvas" href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a><a aria-current class="ghost-btn" data-bs-dismiss="offcanvas" href="post.html"><i class="fa-solid fa-layer-group"></i> التصاميم واللوقو</a><a aria-current class="ghost-btn" data-bs-dismiss="offcanvas" href="after.html"><i class="fa-solid fa-arrow-right-arrow-left"></i> قبل وبعد</a><a aria-current="page" class="ghost-btn" data-bs-dismiss="offcanvas" href="video.html"><i class="fa-solid fa-play"></i> فيديوهات الموشن والريلز</a><a aria-current class="ghost-btn" data-bs-dismiss="offcanvas" href="comments.html"><i class="fa-solid fa-star"></i> آراء العملاء</a></div></div></div>
+<div aria-hidden="true" class="modal fade" id="previewModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered modal-xl">
+<div class="modal-content preview-content">
+<button aria-label="إغلاق" class="btn-close preview-close" data-bs-dismiss="modal" type="button"></button>
+<button aria-label="السابق" class="preview-nav preview-prev" type="button"><i class="fa-solid fa-chevron-right"></i></button>
+<button aria-label="التالي" class="preview-nav preview-next" type="button"><i class="fa-solid fa-chevron-left"></i></button>
+<div class="preview-counter" id="previewCounter">فيديو</div>
+<img alt="معاينة العمل" id="modalImage" src=""/>
+<video controls="" controlslist="nodownload" id="modalVideo" playsinline="" style="display:none"></video>
+<div class="preview-info"><span id="modalCategory"></span><h2 id="modalTitle"></h2></div>
+</div>
+</div>
+</div>
+<button aria-label="العودة للأعلى" class="back-to-top" id="backToTop" type="button"><i class="fa-solid fa-arrow-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
